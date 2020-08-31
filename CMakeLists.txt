@@ -51,9 +51,7 @@ if(NOT TARGET uninstall)
                             ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 endif()
 
-if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_SOURCE_DIR})
-  export(TARGETS FILE ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}Targets.cmake)
-endif()
+  export(TARGETS FILE ${CMAKE_BINARY_DIR}/${PROJECT_NAME}Targets.cmake)
 
 file(
   WRITE
@@ -93,10 +91,10 @@ endif()
 
 install(EXPORT ${PROJECT_NAME}Targets
         NAMESPACE red::
-        DESTINATION lib/cmake/${CMAKE_PROJECT_NAME})
+	DESTINATION lib/cmake/${PROJECT_NAME})
 
 install(TARGETS ${PROJECT_NAME}
-        EXPORT ${CMAKE_PROJECT_NAME}Targets
+	EXPORT ${PROJECT_NAME}Targets
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
         RUNTIME DESTINATION bin)
